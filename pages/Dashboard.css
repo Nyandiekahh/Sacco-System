@@ -1,0 +1,310 @@
+/* Dashboard.css */
+
+/* Main Layout */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+  }
+  
+  /* Sidebar Styles */
+  .dashboard-sidebar {
+    width: 280px;
+    background-color: #003B4A;
+    min-height: 100vh;
+    padding: 1.5rem;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+  
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .sidebar-logo {
+    font-size: 1.5rem;
+    font-family: 'Righteous', cursive;
+    color: white;
+    margin-left: 0.5rem;
+  }
+  
+  /* Sidebar Navigation */
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .nav-item {
+    text-decoration: none;
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-item:hover, .nav-item.active {
+    background-color: #00A651;
+  }
+  
+  .nav-item svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Main Content Area */
+  .dashboard-main {
+    flex: 1;
+    margin-left: 280px;
+    min-height: 100vh;
+  }
+  
+  /* Dashboard Header */
+  .dashboard-header {
+    background-color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .header-welcome {
+    font-size: 1.2rem;
+    color: #003B4A;
+  }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  /* Dashboard Content */
+  .dashboard-content {
+    padding: 2rem;
+  }
+  
+  /* Overview Cards */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  .stat-card h3 {
+    color: #003B4A;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .stat-amount {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00A651;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-subtitle {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  /* KYC Section */
+  .kyc-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+  }
+  
+  .kyc-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .kyc-header h2 {
+    color: #003B4A;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .kyc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .upload-card {
+    border: 2px dashed #ddd;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .upload-card:hover {
+    border-color: #00A651;
+  }
+  
+  .upload-card.completed {
+    border: 2px solid #00A651;
+    background-color: rgba(0, 166, 81, 0.1);
+  }
+  
+  /* Transaction History */
+  .transactions-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+  }
+  
+  .transaction-list {
+    margin-top: 1rem;
+  }
+  
+  .transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .dashboard-sidebar {
+      width: 240px;
+    }
+    
+    .dashboard-main {
+      margin-left: 240px;
+    }
+    
+    .overview-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-sidebar {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      width: 100%;
+      height: 100vh;
+    }
+    
+    .dashboard-main {
+      margin-left: 0;
+    }
+    
+    .menu-trigger {
+      display: block;
+    }
+    
+    .dashboard-header {
+      padding: 1rem;
+    }
+    
+    .dashboard-content {
+      padding: 1rem;
+    }
+    
+    .overview-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .kyc-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Loading States */
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #003B4A;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Form Elements */
+  .dashboard-form-control {
+    margin-bottom: 1.5rem;
+  }
+  
+  .dashboard-form-control label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #003B4A;
+  }
+  
+  .dashboard-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .dashboard-button {
+    background-color: #00A651;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dashboard-button:hover {
+    background-color: #008c44;
+  }
+  
+  .dashboard-button.secondary {
+    background-color: #003B4A;
+  }
+  
+  .dashboard-button.secondary:hover {
+    background-color: #002835;
+  }
